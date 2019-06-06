@@ -21,10 +21,9 @@ def usuario():
     req = {}
     if request.method == 'POST':
         if request.is_json:
-            print('is_json: {}'.format(request.is_json))
-            #req = json.loads(request.data, strict=False)
-            req = request.get_json(force=True)
-            print('req: {}'.format(req))
+            print('is_json:  {}'.format(request.is_json))
+            req = json.dumps(request.get_json(force=True))
+            print('get_json: {}'.format(req))
     return rt('usuario.html', usr=req)
     #return redirect(url_for('index'))
 
