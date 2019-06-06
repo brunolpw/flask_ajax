@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hello</title>
+</head>
+<body id="corpo" data-usr="{{ usr }}">
+    <h1>Home</h1>
+    <p>Ver <a href="{{ url_for('usuario') }}">usuário</a></p>
+    <input type="button" onclick="alertar()" value="alerta">
+    <input type="button" onclick="enviar_ajax()" value="enviar">
+
+    <script src="{{ url_for('static', filename='jquery-3.4.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+Flask -> JS
+
+http://aprenda-python.blogspot.com/2017/03/como-passar-conteudo-para-o-javascript.html
+
+google: html5 data-*
+
+https://developer.mozilla.org/pt-BR/docs/Web/Guide/HTML/Using_data_attributes
+
+https://developer.mozilla.org/pt-BR/docs/Web/HTML/Global_attributes/data-*
