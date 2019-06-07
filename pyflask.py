@@ -15,17 +15,19 @@ def index():
     print(usr)
     return rt('index.html', usr=usr)
 
-#@app.route('/usuario/<int:id>', methods=['GET'])
+
 @app.route('/usuario', methods=['GET', 'POST'])
 def usuario():
-    req = {}
+    usr = {}
     if request.method == 'POST':
         if request.is_json:
             print('is_json:  {}'.format(request.is_json))
-            req = json.dumps(request.get_json(force=True))
-            print('get_json: {}'.format(req))
-    return rt('usuario.html', usr=req)
-    #return redirect(url_for('index'))
+            usr = request.get_json(force=False)
+            usr['nome'] = usr['nome'].upper()
+            print('get_json: {}'.format(usr))
+            return jsonify({'data': rt('usuario.html', usr=usr)})
+            #return jsonify(usuario=usr)
+    #return rt('usuario.html', usr=usr)
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1')
