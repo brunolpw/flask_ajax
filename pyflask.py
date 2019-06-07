@@ -27,7 +27,8 @@ def usuario():
             print('get_json: {}'.format(usr))
             #return jsonify({'data': rt('usuario.html', usr=usr)})
             #return jsonify(usuario=usr)
-            return jsonify(id=usr['id'], nome=usr['nome'])
+            usuario = jsonify(id=usr['id'], nome=usr['nome'])
+            return usuario
     return rt('usuario.html', usr=usr)
 
 if __name__ == '__main__':
