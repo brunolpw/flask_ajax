@@ -19,19 +19,16 @@ function enviar_ajax() {
     $.ajax({
         url: '/usuario',
         type: 'POST',
-        //data: JSON.stringify(usuario),
-        //data: {'id': '7', 'nome': 'BRUNO'},
         data: post_usuario,
-        //data: usuario,
         dataType: 'json',
         contentType: 'application/json; charset=utf-8',
-        /*done: function(data) {
-            debugger;
-            alert(data.id);
-        },*/
-        sucess: function (result, status, request) {
-            console.log('Sucess');
+        success: function (result, status, request) {
+            console.log('result: ' + JSON.stringify(result));
+            console.log('status: ' + status);
+            console.log('request: ' + JSON.stringify(request));
             alert('Sucess');
+            const u = JSON.parse(JSON.stringify(result));
+            console.log(u);
         },
         error: function (event, jqxhr, settings, thrownError) {
             console.log('event: ' + JSON.stringify(event));

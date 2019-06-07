@@ -25,9 +25,10 @@ def usuario():
             usr = request.get_json(force=False)
             usr['nome'] = usr['nome'].upper()
             print('get_json: {}'.format(usr))
-            return jsonify({'data': rt('usuario.html', usr=usr)})
+            #return jsonify({'data': rt('usuario.html', usr=usr)})
             #return jsonify(usuario=usr)
-    #return rt('usuario.html', usr=usr)
+            return jsonify(id=usr['id'], nome=usr['nome'])
+    return rt('usuario.html', usr=usr)
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1')
