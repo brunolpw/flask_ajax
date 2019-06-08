@@ -10,7 +10,9 @@
     <h1>Home</h1>
     <p>Ver <a href="{{ url_for('usuario') }}">usuário</a></p>
 
-    <form method="post">
+    <span id="s_nome"></span>
+
+    <form id="form_login" method="post" action="{{ url_for('usuario') }}">
         <table>
             <tr>
                 <td>e-mail</td>
@@ -23,7 +25,7 @@
             </tr>
 
             <tr>
-                <td><input type="submit" id="btn_entrar" value="Entrar"></td>
+                <td><input type="button" id="btn_entrar" onclick="enviar_form()" value="Entrar"></td>
             </tr>
         </table>
     </form>

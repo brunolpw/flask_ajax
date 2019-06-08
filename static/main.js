@@ -29,6 +29,7 @@ function enviar_ajax() {
             alert('Sucess');
             const u = JSON.parse(JSON.stringify(result));
             console.log(u);
+            let s = document.getElementById('s_nome').innerText = u.nome;
         },
         error: function (event, jqxhr, settings, thrownError) {
             console.log('event: ' + JSON.stringify(event));
@@ -38,4 +39,10 @@ function enviar_ajax() {
             //alert('Error');
         }
     });
+}
+
+function enviar_form() {
+    if(confirm('enviar dados?')) {
+        const login = document.getElementById('form_login').submit();
+    }
 }
