@@ -39,3 +39,9 @@ function enviar_ajax() {
         }
     });
 }
+
+function enviar_form(event) {
+    debugger;
+    form = document.getElementById('form_login').submit();
+    console.log(form);
+}
