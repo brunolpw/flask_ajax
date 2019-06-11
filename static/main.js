@@ -41,8 +41,8 @@ function enviar_ajax() {
     });
 }
 
-function enviar_form() {
-    if(confirm('enviar dados?')) {
-        const login = document.getElementById('form_login').submit();
-    }
+function enviar_form(event) {
+    let form = document.getElementById('form_login').submit();
+    console.log(form);
+
 }
