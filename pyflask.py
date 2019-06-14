@@ -21,12 +21,10 @@ def usuario():
     usr = {}
     if request.method == 'POST':
         if request.is_json:
-            print('is_json:  {}'.format(request.is_json))
+            #print('is_json:  {}'.format(request.is_json))
             usr = request.get_json(force=False)
-            usr['nome'] = usr['nome'].upper()
             print('get_json: {}'.format(usr))
-            #return jsonify({'data': rt('usuario.html', usr=usr)})
-            #return jsonify(usuario=usr)
+            usr['nome'] = usr['nome'].upper()
             usuario = jsonify(id=usr['id'], nome=usr['nome'])
             return usuario
     return rt('usuario.html', usr=usr)
