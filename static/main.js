@@ -11,7 +11,7 @@ function alertar() {
 
 function enviar_ajax() {
     let usuario = get_usr();
-    usuario.nome = 'Bruno';
+    usuario.nome = document.querySelector('#email').value;
     usuario.id = 42;
     const post_usuario = JSON.stringify(usuario);
     console.log('post_usuario: ' + post_usuario);
@@ -23,13 +23,13 @@ function enviar_ajax() {
         dataType: 'json',
         contentType: 'application/json; charset=utf-8',
         success: function (result, status, request) {
-            console.log('result: ' + JSON.stringify(result));
-            console.log('status: ' + status);
-            console.log('request: ' + JSON.stringify(request));
-            alert('Sucess');
+            //console.log('result: ' + JSON.stringify(result));
+            //console.log('status: ' + status);
+            //console.log('request: ' + JSON.stringify(request));
+            //alert('Sucess');
             const u = JSON.parse(JSON.stringify(result));
             console.log(u);
-            let s = document.getElementById('s_nome').innerText = u.nome;
+            let s = document.querySelector('#s_nome').innerText = u.nome;
         },
         error: function (event, jqxhr, settings, thrownError) {
             console.log('event: ' + JSON.stringify(event));
