@@ -18,7 +18,10 @@ def index():
 
 @app.route('/usuario', methods=['GET', 'POST'])
 def usuario():
-    usr = {}
+    usr = {
+        'nome': request.form.get('email'),
+        'senha': request.form.get('senha')
+    }
     if request.method == 'POST':
         if request.is_json:
             #print('is_json:  {}'.format(request.is_json))
