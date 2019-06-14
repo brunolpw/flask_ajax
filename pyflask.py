@@ -23,7 +23,7 @@ def usuario():
         if request.is_json:
             #print('is_json:  {}'.format(request.is_json))
             usr = request.get_json(force=False)
-            print('get_json: {}'.format(usr))
+            #print('get_json: {}'.format(usr))
             usr['nome'] = usr['nome'].upper()
             usuario = jsonify(id=usr['id'], nome=usr['nome'])
             return usuario
