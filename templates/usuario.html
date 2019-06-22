@@ -9,9 +9,19 @@
 <body id="corpo" data-usr="{{ usr }}">
     <h1>Usuário</h1>
     <p>Ver <a href="{{ url_for('index') }}">home</a></p>
-    <p id="usr_id">{{ usr.id }}</p>
-    <p id="usr_nome">{{ usr.nome }}</p>
-    <p id="usr_senha">{{ usr.senha }}</p>
+    
+    <!-- Os ifs servem para verificar se há dados sendo recebidos, para que não seja enviado nenhum dado sem parâmetro. -->
+    {% if usr.id != None %}
+        <p id="usr_id">{{ usr.id }}</p>
+    {% endif %}
+
+    {% if usr.login != None %}
+        <p id="usr_login">e-mail: {{ usr.login }}</p>
+    {% endif %}
+
+    {% if usr.senha != None %}
+        <p id="usr_senha">senha: {{ usr.senha }}</p>
+    {% endif %}
 
     <script src="{{ url_for('static', filename='jquery-3.4.1.min.js') }}"></script>
     <script src="{{ url_for('static', filename='main.js') }}"></script>

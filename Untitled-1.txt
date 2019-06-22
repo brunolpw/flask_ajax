@@ -7,3 +7,5 @@ google: html5 data-*
 https://developer.mozilla.org/pt-BR/docs/Web/Guide/HTML/Using_data_attributes
 
 https://developer.mozilla.org/pt-BR/docs/Web/HTML/Global_attributes/data-*
+
+https://www.devmedia.com.br/utilizando-os-custom-data-attributes-da-html5/28040

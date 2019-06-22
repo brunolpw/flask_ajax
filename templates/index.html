@@ -7,17 +7,18 @@
     <title>Hello</title>
 </head>
 
-<body id="corpo" data-usr="{{ usr }}">
+<body id="corpo" data-usr="{{ usr }}"> <!-- O parâmetro data-* é usado para envios de dados entre back e front, segue recomendação oficial. -->
     <h1>Home</h1>
     <p>Ver <a href="{{ url_for('usuario') }}">usuário</a></p>
 
-    <span id="s_nome"></span>
+    <span id="s_login"></span> <!-- Retorno do ajax com o a informação processada. -->
     
     <form id="form_login" method="post" action="{{ url_for('usuario') }}">
+        <input type="hidden" name="id" id="id" value=""> <!-- Recebe o ID via JS. -->
         <table>
             <tr>
                 <td>e-mail</td>
-                <td><input id="email" type="email" name="email" id="email"></td>
+                <td><input type="email" name="email" id="email"></td>
             </tr>
 
             <tr>
@@ -26,13 +27,13 @@
             </tr>
 
             <tr>
-                <td><input type="button" id="btn_entrar" onclick="enviar_form()" value="Entrar"></td>
+                <td><input type="button" id="btn_entrar" onclick="enviar_form()" value="Entrar"></td> <!-- Envia o formulário para o backend e chama a outra página. -->
             </tr>
         </table>
     </form>
 
-    <input type="button" onclick="alertar()" value="alerta">
-    <input type="button" onclick="enviar_ajax()" value="enviar ajax">
+    <input type="button" onclick="alertar()" value="alerta"> <!-- Faz a chamada para o alert que apresentará o nome que esta no parãmetro data-*. -->
+    <input type="button" onclick="enviar_ajax()" value="enviar ajax"> <!-- Envio dos dados via AJAX, retorna para o #s_login os dados já tratados. -->
 
     <script src="{{ url_for('static', filename='jquery-3.4.1.min.js') }}"></script>
     <script src="{{ url_for('static', filename='main.js') }}"></script>
