@@ -42,7 +42,8 @@ def usuario():
             #print('is_json:  {}'.format(request.is_json)) # True se receber no formato json.
             usr = request.get_json(force=False)            # Recebe os dados do AJAX no formato JSON.
             #print('get_json: {}'.format(usr))             # Mostra o que recebeu.
-            usr['login'] = usr['login'].upper()            # Operação realizada, aqui pode ser substituida por qualquer operação, por exemplo a consulta em um DB ou um update, enfim...
+            usr['login'] = usr['login'].upper()            #    Operação realizada, aqui pode ser substituida por qualquer
+                                                           # operação, por exemplo a consulta em um DB ou um update, enfim...
             usuario = jsonify(
                 id=usr['id'],
                 login=usr['login'],
