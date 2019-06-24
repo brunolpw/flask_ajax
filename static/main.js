@@ -27,19 +27,26 @@ function alertar() {
 }
 
 /*
-    Faz a comunicação via AJAX com o backend para tratar os dados de
-usuário, ela retorna para a index.html os dados já tratados e exibe 
-em um campo span, serve apenas para demonstrar a comunicação dos dados.
+    Pega os dados inseridos no form e retorno o usuário atualizado no
+formato JSON stringfy.
 */
-function enviar_ajax() {
+function get_user_form_data_and_return_stringfy() {
     let usuario = get_usr();
 
     usuario.id    = document.querySelector('#id').value;
     usuario.login = document.querySelector('#email').value;
     usuario.senha = document.querySelector('#senha').value;
 
-    const post_usuario = JSON.stringify(usuario);
-    //console.log('post_usuario: ' + post_usuario);
+    return JSON.stringify(usuario);
+}
+
+/*
+    Faz a comunicação via AJAX com o backend para tratar os dados de
+usuário, ela retorna para a index.html os dados já tratados e exibe 
+em um campo span, serve apenas para demonstrar a comunicação dos dados.
+*/
+function enviar_ajax() {
+    const post_usuario = get_user_form_data_and_return_stringfy();
 
     $.ajax({
         url: '/usuario',
@@ -48,14 +55,10 @@ function enviar_ajax() {
         dataType: 'json',
         contentType: 'application/json; charset=utf-8',
         success: function (result, status, request) {
-            //console.log('result: ' + JSON.stringify(result));
-            //console.log('status: ' + status);
-            //console.log('request: ' + JSON.stringify(request));
-            //alert('Sucess');
             const u = JSON.parse(JSON.stringify(result));
-            //console.log(u);
+
             document.querySelector('#s_login').innerText = u.login;
-            document.querySelector('#corpo') .dataset.usr = JSON.stringify(result);
+            document.querySelector('#corpo').dataset.usr = JSON.stringify(result);
         },
         error: function (event, jqxhr, settings, thrownError) {
             console.log('event: ' + JSON.stringify(event));
